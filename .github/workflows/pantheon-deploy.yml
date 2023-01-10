@@ -19,6 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Cache found load keys
+      uses: pantheoncarl/code-deploy-wp
       run: |
         
         export PROJECT_ROOT="$(pwd)"
