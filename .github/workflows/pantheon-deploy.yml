@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Cache found load keys
-      uses: pantheoncarl/code-deploy-wp@1.0.0
+      uses: pantheoncarl/code-deploy-wp@1.0.1
 
     - name: Terminus Setup
       id: cache-vendor
