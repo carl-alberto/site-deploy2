@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Load Quay Pantheon image
-      uses: pantheoncarl/code-deploy-wp@1.0.6
+      uses: pantheoncarl/code-deploy-wp@1.0.7
 
     - name: Terminus Setup
       id: cache-vendor
@@ -37,8 +37,6 @@ jobs:
         cd /home/runner/work
         ls
         composer
-        cd ~/terminus
-        ls
         
         # export PROJECT_ROOT="$(pwd)"
         # . $PROJECT_ROOT/config  
