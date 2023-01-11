@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Load Quay Pantheon image
-      uses: pantheoncarl/code-deploy-wp@1.0.7
+      uses: pantheoncarl/code-deploy-wp@1.0.8
 
     - name: Terminus Setup
       id: cache-vendor
