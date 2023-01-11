@@ -23,20 +23,20 @@ jobs:
     - name: Terminus Setup
       uses: pantheoncarl/code-deploy-wp@1.1.7
       id: cache-vendor
-      run: |
+      # run: |
 
-        pwd
-        ls
-        #terminus info
-        cd /home
-        pwd
-        ls
-        cd ~
-        ls
-        echo 'homeeeeeee'
-        cd /home/runner/work
-        ls
-        composer
+      #   pwd
+      #   ls
+      #   #terminus info
+      #   cd /home
+      #   pwd
+      #   ls
+      #   cd ~
+      #   ls
+      #   echo 'homeeeeeee'
+      #   cd /home/runner/work
+      #   ls
+      #   composer
         
         # export PROJECT_ROOT="$(pwd)"
         # . $PROJECT_ROOT/config  
