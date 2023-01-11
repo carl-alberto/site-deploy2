@@ -24,28 +24,35 @@ jobs:
     - name: Terminus Setup
       id: cache-vendor
       run: |
-        
-        export PROJECT_ROOT="$(pwd)"
-        . $PROJECT_ROOT/config  
 
-        sh $PROJECT_ROOT/scripts/github/load-variables
-
-        sh $PROJECT_ROOT/scripts/github/setup-terminus
-
-        printf "[\e[0;34mNOTICE\e[0m] Terminus Setup COMPLETE!!!.\n"
+        pwd
         ls
+        
+        # export PROJECT_ROOT="$(pwd)"
+        # . $PROJECT_ROOT/config  
 
-    - name: Composer build and deploy
-      id: cache-composer
-      run: |
-        export PROJECT_ROOT="$(pwd)"
-        . $PROJECT_ROOT/config  
+        # sh $PROJECT_ROOT/scripts/github/load-variables
 
         # sh $PROJECT_ROOT/scripts/github/setup-terminus
 
-        # sh $PROJECT_ROOT/scripts/github/build-wp-composer-partial
-        sh $PROJECT_ROOT/scripts/github/build-wp-composer
-        ls
+        # printf "[\e[0;34mNOTICE\e[0m] Terminus Setup COMPLETE!!!.\n"
+        # ls
+
+    # - name: Composer build and deploy
+    #   id: cache-composer
+    #   run: |
+    #     export PROJECT_ROOT="$(pwd)"
+    #     . $PROJECT_ROOT/config  
+
+    #     # sh $PROJECT_ROOT/scripts/github/setup-terminus
+
+    #     # sh $PROJECT_ROOT/scripts/github/build-wp-composer-partial
+    #     sh $PROJECT_ROOT/scripts/github/build-wp-composer
+    #     ls
+
+
+
+
 
     # - name: Save Vender folder
     #   uses: actions/upload-artifact@v1
