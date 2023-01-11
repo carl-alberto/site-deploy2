@@ -20,7 +20,7 @@ jobs:
         PANTHEONSITEUUID: ${{ secrets.PANTHEONSITEUUID }}
         PANTHEONEMAIL: ${{ secrets.PANTHEONEMAIL }}
         MACHINETOKEN: ${{ secrets.MACHINETOKEN }}
-        STAGING_PRIVATE_KEY: ${{ secrets.STAGING_PRIVATE_KEY }}
+        PANTHEON_PRIVATE_KEY: ${{ secrets.PANTHEON_PRIVATE_KEY }}
         PROJECT_ROOT: $(pwd)
         GH_REF2: ${{ github.ref }}
       # run: |
