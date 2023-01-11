@@ -36,6 +36,9 @@ jobs:
         echo 'homeeeeeee'
         cd /home/runner/work
         ls
+        composer
+        cd ~/terminus
+        ls
         
         # export PROJECT_ROOT="$(pwd)"
         # . $PROJECT_ROOT/config  
