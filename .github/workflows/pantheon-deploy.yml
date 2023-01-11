@@ -27,7 +27,7 @@ jobs:
 
         pwd
         ls
-        terminus info
+        #terminus info
         cd /home
         pwd
         ls
