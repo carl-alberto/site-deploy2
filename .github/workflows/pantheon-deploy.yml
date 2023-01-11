@@ -21,6 +21,7 @@ jobs:
     - name: Cache found load keys
       uses: pantheoncarl/code-deploy-wp@1.0.5
       run: |
+        terminus info
         pwd
         ls
         cd /
