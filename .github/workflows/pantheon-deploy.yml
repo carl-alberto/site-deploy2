@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  build:
+  github deploy to dev:
 
     runs-on: ubuntu-latest
     env:
