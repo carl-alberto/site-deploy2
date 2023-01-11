@@ -18,7 +18,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Cache found load keys
+    - name: Load Quay Pantheon image
       uses: pantheoncarl/code-deploy-wp@1.0.5
 
     - name: Terminus Setup
@@ -33,6 +33,7 @@ jobs:
         ls
         cd ~
         ls
+        echo 'homeeeeeee'
         cd /home/runner/work
         ls
         
