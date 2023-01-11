@@ -17,6 +17,7 @@ jobs:
       uses: pantheoncarl/code-deploy-wp@1.1.10
       id: cache-vendor
       env:
+        CARKONEMAIL: ${{ secrets.PANTHEONEMAIL }}
         PANTHEONSITEUUID: ${{ secrets.PANTHEONSITEUUID }}
         PANTHEONEMAIL: ${{ secrets.PANTHEONEMAIL }}
         MACHINETOKEN: ${{ secrets.MACHINETOKEN }}
@@ -57,6 +58,9 @@ jobs:
     - name: Composer build and deploy
       id: cache-composer
       run: |
+        echo $CARKONEMAIL
+        echo "$CARKONEMAIL"
+        echo CARKONEMAIL
         ls
         pwd
         cd /
