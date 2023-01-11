@@ -31,6 +31,10 @@ jobs:
         cd /home
         pwd
         ls
+        cd ~
+        ls
+        cd /home/runner/work
+        ls
         
         # export PROJECT_ROOT="$(pwd)"
         # . $PROJECT_ROOT/config  
