@@ -20,13 +20,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Cache found load keys
       uses: pantheoncarl/code-deploy-wp
-      run: |
-        
-        export PROJECT_ROOT="$(pwd)"
-        . $PROJECT_ROOT/config
-        sh $PROJECT_ROOT/scripts/github/load-keys
-        # ssh-add -l
-        # if this is tru maybe we can use on each step
 
     - name: Terminus Setup
       id: cache-vendor
