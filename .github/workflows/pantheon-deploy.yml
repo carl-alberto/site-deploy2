@@ -17,11 +17,11 @@ jobs:
       GH_REF2: "${{ github.ref }}"
 
     steps:
-    - uses: actions/checkout@v2
     - name: Load Quay Pantheon image
-      uses: pantheoncarl/code-deploy-wp@1.0.8
+      uses: actions/checkout@v3
 
     - name: Terminus Setup
+      uses: pantheoncarl/code-deploy-wp@1.0.9
       id: cache-vendor
       run: |
 
