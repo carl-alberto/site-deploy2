@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Terminus Setup
-      uses: pantheoncarl/code-deploy-wp@1.1.10
+      uses: pantheoncarl/code-deploy-wp@1.2.0
       id: cache-vendor
       env:
         CARKONEMAIL: ${{ secrets.PANTHEONEMAIL }}
