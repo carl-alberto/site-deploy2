@@ -59,6 +59,8 @@ jobs:
       run: |
         ls
         pwd
+        cd /
+        ls
 
     #     # sh $PROJECT_ROOT/scripts/github/setup-terminus
 
