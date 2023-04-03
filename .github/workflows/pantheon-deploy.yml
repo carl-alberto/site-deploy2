@@ -13,12 +13,12 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Pull Docker Image
-        run: docker pull quay.io/repository/pantheon-public/build-tools-ci:8.x-php7.4
+        run: docker pull quay.io/pantheon-public/build-tools-ci:8.x-php7.4
 
       - name: Run Docker Container
         run: |
           docker run -it \
             -v $(pwd):/app \
             -w /app \
-            quay.io/repository/pantheon-public/build-tools-ci:8.x-php7.4 \
+            quay.io/pantheon-public/build-tools-ci:8.x-php7.4 \
             bash -c "echo 'Hello, world!'; ls"
