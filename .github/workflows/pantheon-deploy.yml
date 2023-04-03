@@ -80,10 +80,12 @@ jobs:
       # Deploy to Pantheon
       - name: deploy to Pantheon
         run: |
-          echo "$SSH_PRIVATE_KEY" > ../private.key
-          chmod 600 ../private.key
-          eval `ssh-agent -s`
-          ssh-add ../private.key
-          source $BASH_ENV
-          ./.ci/deploy/pantheon/dev-multidev
+          #echo "$SSH_PRIVATE_KEY" > ../private.key
+          #chmod 600 ../private.key
+          #eval `ssh-agent -s`
+          #ssh-add ../private.key
+          #source $BASH_ENV
+          #./.ci/deploy/pantheon/dev-multidev
+          ls
+          terminus info
 
