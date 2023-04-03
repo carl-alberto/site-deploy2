@@ -42,7 +42,7 @@ jobs:
 
         # sh $PROJECT_ROOT/scripts/github/load-variables
 
-        # sh $PROJECT_ROOT/scripts/github/setup-terminus
+        sh $PROJECT_ROOT/scripts/github/setup-terminus
 
         # printf "[\e[0;34mNOTICE\e[0m] Terminus Setup COMPLETE!!!.\n"
         # ls
@@ -64,12 +64,12 @@ jobs:
         cd /
         ls
         terminus
-
+        sh $PROJECT_ROOT/scripts/github/setup-terminus
     #     # sh $PROJECT_ROOT/scripts/github/setup-terminus
 
     #     # sh $PROJECT_ROOT/scripts/github/build-wp-composer-partial
           #uncommen this to auto deploy
-         sh $PROJECT_ROOT/scripts/github/build-wp-composer
+    # sh $PROJECT_ROOT/scripts/github/build-wp-composer
     #     ls
 
 
