@@ -24,8 +24,6 @@ jobs:
         GH_REF2: ${{ github.ref }}
       # run: |
 
-
-
       #   pwd
       #   ls
       #   #terminus info
