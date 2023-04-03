@@ -88,4 +88,5 @@ jobs:
           #./.ci/deploy/pantheon/dev-multidev
           ls
           terminus self:info
+          ls /build-tools-ci/scripts
 
