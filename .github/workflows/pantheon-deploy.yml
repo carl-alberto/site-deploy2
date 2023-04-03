@@ -65,6 +65,7 @@ jobs:
         cd /
         ls
         terminus
+        
 
     #     # sh $PROJECT_ROOT/scripts/github/setup-terminus
 
