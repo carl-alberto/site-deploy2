@@ -68,7 +68,8 @@ jobs:
     #     # sh $PROJECT_ROOT/scripts/github/setup-terminus
 
     #     # sh $PROJECT_ROOT/scripts/github/build-wp-composer-partial
-    #     sh $PROJECT_ROOT/scripts/github/build-wp-composer
+          #uncommen this to auto deploy
+         sh $PROJECT_ROOT/scripts/github/build-wp-composer
     #     ls
 
 
