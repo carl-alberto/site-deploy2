@@ -1,93 +1,24 @@
-name: Pantheon Build
+name: My Action
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  github_deploy_to_dev:
-
+  my-job:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Terminus Setup
-      uses: pantheoncarl/code-deploy-wp@1.2.0
-      id: cache-vendor
-      env:
-        CARKONEMAIL: ${{ secrets.PANTHEONEMAIL }}
-        PANTHEONSITEUUID: ${{ secrets.PANTHEONSITEUUID }}
-        PANTHEONEMAIL: ${{ secrets.PANTHEONEMAIL }}
-        MACHINETOKEN: ${{ secrets.MACHINETOKEN }}
-        PANTHEON_PRIVATE_KEY: ${{ secrets.PANTHEON_PRIVATE_KEY }}
-        PROJECT_ROOT: $(pwd)
-        GH_REF2: ${{ github.ref }}
-      # run: |
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Pull Docker Image
+        run: docker pull quay.io/repository/pantheon-public/build-tools-ci:8.x-php7.4
 
-      #   pwd
-      #   ls
-      #   #terminus info
-      #   cd /home
-      #   pwd
-      #   ls
-      #   cd ~
-      #   ls
-      #   echo 'homeeeeeee'
-      #   cd /home/runner/work
-      #   ls
-      #   composer
-        
-        # export PROJECT_ROOT="$(pwd)"
-        # . $PROJECT_ROOT/config  
-
-        # sh $PROJECT_ROOT/scripts/github/load-variables
-
-        # sh $PROJECT_ROOT/scripts/github/setup-terminus
-
-        # printf "[\e[0;34mNOTICE\e[0m] Terminus Setup COMPLETE!!!.\n"
-        # ls
-
-    # - name: Composer build and deploy
-    #   id: cache-composer
-    #   run: |
-    #     export PROJECT_ROOT="$(pwd)"
-    #     . $PROJECT_ROOT/config  
-
-    - name: Composer build and deploy
-      id: cache-composer
-      run: |
-        echo $CARKONEMAIL
-        echo "$CARKONEMAIL"
-        echo CARKONEMAIL
-        ls
-        pwd
-        cd /
-        ls
-        terminus
-    #     # sh $PROJECT_ROOT/scripts/github/setup-terminus
-
-    #     # sh $PROJECT_ROOT/scripts/github/build-wp-composer-partial
-    #     sh $PROJECT_ROOT/scripts/github/build-wp-composer
-    #     ls
-
-
-
-
-
-    # - name: Save Vender folder
-    #   uses: actions/upload-artifact@v1
-    #   with:
-    #     name: vendor-data
-    #     path: vendor
-
-    # - name: Save WP compiled
-    #   uses: actions/upload-artifact@v1
-    #   with:
-    #     name: wp-compiled
-    #     path: web
-    
-    # - name: Save WP custom
-    #   uses: actions/upload-artifact@v1
-    #   with:
-    #     name: wp-compiled
-    #     path: web/wp-content/themes
+      - name: Run Docker Container
+        run: |
+          docker run -it \
+            -v $(pwd):/app \
+            -w /app \
+            quay.io/repository/pantheon-public/build-tools-ci:8.x-php7.4 \
+            bash -c "echo 'Hello, world!'; ls"
