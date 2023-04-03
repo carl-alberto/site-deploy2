@@ -1,94 +1,96 @@
-name: My Action
-
+name: Pantheon Build
 on:
   push:
     branches:
       - main
 
 jobs:
-  my-job:
+  github_deploy_to_dev:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Pull Docker Image
-        run: docker pull quay.io/pantheon-public/build-tools-ci:8.x-php7.4
+    - uses: actions/checkout@v3
+    - name: Terminus Setup
+      uses: pantheoncarl/code-deploy-wp@main
+      id: cache-vendor
+      env:
+        CARKONEMAIL: ${{ secrets.PANTHEONEMAIL }}
+        PANTHEONSITEUUID: ${{ secrets.PANTHEONSITEUUID }}
+        PANTHEONEMAIL: ${{ secrets.PANTHEONEMAIL }}
+        MACHINETOKEN: ${{ secrets.MACHINETOKEN }}
+        PANTHEON_PRIVATE_KEY: ${{ secrets.PANTHEON_PRIVATE_KEY }}
+        PROJECT_ROOT: $(pwd)
+        GH_REF2: ${{ github.ref }}
+      # run: |
 
-  deploy_to_pantheon:
-    container:
-      image: quay.io/pantheon-public/build-tools-ci:6.x
-      options: --user root
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      #   pwd
+      #   ls
+      #   #terminus info
+      #   cd /home
+      #   pwd
+      #   ls
+      #   cd ~
+      #   ls
+      #   echo 'homeeeeeee'
+      #   cd /home/runner/work
+      #   ls
+      #   composer
+        
+        # export PROJECT_ROOT="$(pwd)"
+        # . $PROJECT_ROOT/config  
 
-      - name: Cache bash_env.txt
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-bash-env
-        with:
-          path: bash_env.txt
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.run_number }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Cache composer cache
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-composer-cache
-        with:
-          path: ~/.composer/cache
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Cache vendor folder
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-vendor
-        with:
-          path: ./vendor
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.run_number }}-${{ hashFiles('**/composer.lock') }}
+        # sh $PROJECT_ROOT/scripts/github/load-variables
 
-      - name: Cache web folder
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-web
-        with:
-          path: ./web
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.run_number }}
+        # sh $PROJECT_ROOT/scripts/github/setup-terminus
 
-      - name: Cache drush folder
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-drush
-        with:
-          path: ./drush
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
+        # printf "[\e[0;34mNOTICE\e[0m] Terminus Setup COMPLETE!!!.\n"
+        # ls
 
-      # Set TERMINUS_ENV and related environment variables.
-      # https://github.com/pantheon-systems/docker-build-tools-ci/blob/6.x/scripts/set-environment
-      - name: setup-environment-vars
-        run: /build-tools-ci/scripts/set-environment
+    # - name: Composer build and deploy
+    #   id: cache-composer
+    #   run: |
+    #     export PROJECT_ROOT="$(pwd)"
+    #     . $PROJECT_ROOT/config  
 
-      # Deploy to Pantheon
-      - name: deploy to Pantheon
-        run: |
-          #echo "$SSH_PRIVATE_KEY" > ../private.key
-          #chmod 600 ../private.key
-          #eval `ssh-agent -s`
-          #ssh-add ../private.key
-          #source $BASH_ENV
-          #./.ci/deploy/pantheon/dev-multidev
-          ls
-          terminus self:info
-          ls /build-tools-ci/scripts
-          cd /
-          ls 
+    - name: Composer build and deploy
+      id: cache-composer
+      run: |
+        echo $CARKONEMAIL
+        echo "$CARKONEMAIL"
+        echo CARKONEMAIL
+        ls
+        pwd
+        cd /
+        ls
+        terminus
+
+    #     # sh $PROJECT_ROOT/scripts/github/setup-terminus
+
+    #     # sh $PROJECT_ROOT/scripts/github/build-wp-composer-partial
+    #     sh $PROJECT_ROOT/scripts/github/build-wp-composer
+    #     ls
+
+
+
+
+
+    # - name: Save Vender folder
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: vendor-data
+    #     path: vendor
+
+    # - name: Save WP compiled
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: wp-compiled
+    #     path: web
+    
+    # - name: Save WP custom
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: wp-compiled
+    #     path: web/wp-content/themes
+
 
