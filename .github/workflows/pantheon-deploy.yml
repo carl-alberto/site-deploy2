@@ -89,4 +89,6 @@ jobs:
           ls
           terminus self:info
           ls /build-tools-ci/scripts
+          cd /
+          ls 
 
