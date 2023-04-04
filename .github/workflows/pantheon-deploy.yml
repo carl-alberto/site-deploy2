@@ -22,6 +22,20 @@ jobs:
         PANTHEON_PRIVATE_KEY: ${{ secrets.PANTHEON_PRIVATE_KEY }}
         PROJECT_ROOT: $(pwd)
         GH_REF2: ${{ github.ref }}
+
+
+    - name: Composer build and deploy
+      id: cache-composer
+      run: |
+        echo $CARKONEMAIL
+        echo "$CARKONEMAIL"
+        echo CARKONEMAIL
+        ls
+        pwd
+        cd /
+        ls
+        terminus
+        sh $PROJECT_ROOT/scripts/github/build-wp-composer-partial
       # run: |
 
       #   pwd
@@ -52,18 +66,7 @@ jobs:
     #   run: |
     #     export PROJECT_ROOT="$(pwd)"
     #     . $PROJECT_ROOT/config  
-    - name: Composer build and deploy
-      id: cache-composer
-      run: |
-        echo $CARKONEMAIL
-        echo "$CARKONEMAIL"
-        echo CARKONEMAIL
-        ls
-        pwd
-        cd /
-        ls
-        terminus
-        sh $PROJECT_ROOT/scripts/github/build-wp-composer-partial
+
     #     # sh $PROJECT_ROOT/scripts/github/setup-terminus
 
         
