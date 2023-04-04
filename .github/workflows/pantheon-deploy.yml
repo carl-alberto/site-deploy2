@@ -22,7 +22,6 @@ jobs:
         PANTHEON_PRIVATE_KEY: ${{ secrets.PANTHEON_PRIVATE_KEY }}
         PROJECT_ROOT: $(pwd)
         GH_REF2: ${{ github.ref }}
-
     - name: Composer build and deploy
       id: cache-composer
       run: |
