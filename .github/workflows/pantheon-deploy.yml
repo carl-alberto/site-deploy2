@@ -33,7 +33,9 @@ jobs:
         cd /
         ls
         terminus
-        sh $PROJECT_ROOT/scripts/github/build-wp-composer-partial
+        cd /home/runner/work
+        ls
+      # sh $PROJECT_ROOT/scripts/github/build-wp-composer-partial
       # run: |
 
       #   pwd
