@@ -56,7 +56,6 @@ jobs:
     - name: Composer build and deploy
       id: cache-composer
       run: |
-      
         echo $CARKONEMAIL
         echo "$CARKONEMAIL"
         echo CARKONEMAIL
@@ -65,10 +64,10 @@ jobs:
         cd /
         ls
         terminus
-        
+
     #     # sh $PROJECT_ROOT/scripts/github/setup-terminus
 
-    #     # sh $PROJECT_ROOT/scripts/github/build-wp-composer-partial
+        sh $PROJECT_ROOT/scripts/github/build-wp-composer-partial
     #     sh $PROJECT_ROOT/scripts/github/build-wp-composer
     #     ls
 
