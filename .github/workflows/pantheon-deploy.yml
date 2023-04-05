@@ -29,6 +29,8 @@ jobs:
         echo $CARKONEMAIL
         ls
         export SITENAME="$(terminus site:info  --format list --field name -- $PANTHEONSITEUUID)"
+        echo $SITENAME
+        echo $PANTHEONSITEUUID
         terminus rsync . $SITENAME.dev:code
         pwd
         cd /
