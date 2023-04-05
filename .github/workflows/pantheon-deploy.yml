@@ -15,7 +15,7 @@ jobs:
     - name: Pantheon Deploy
       uses: pantheoncarl/code-deploy-wp@main
       id: cache-vendor
-      env:
+      with:
         CARKONEMAIL: ${{ secrets.PANTHEONEMAIL }}
         PANTHEONSITEUUID: 4a2be46c-9101-45d4-b51b-cd342c7b3d7f
         PANTHEONEMAIL: carl.alberto@getpantheon.com
@@ -24,6 +24,18 @@ jobs:
         PROJECT_ROOT: $(pwd)
         GH_REF2: ${{ github.ref }}
         PANTHEONENV: dev
+      run: |
+        echo $CARKONEMAIL
+        ls
+        export SITENAME="$(terminus site:info  --format list --field name -- $PANTHEONSITEUUID)"
+        echo $SITENAME
+        echo $PANTHEONSITEUUID
+        terminus rsync . $SITENAME.dev:code
+        pwd
+        cd /
+        ls
+        terminus whoami
+        eval `ssh-agent -s`
     - name: Composer build and deploy
       id: cache-composer
       run: |
