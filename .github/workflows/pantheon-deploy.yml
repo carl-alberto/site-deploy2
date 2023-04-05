@@ -27,12 +27,14 @@ jobs:
     - name: Composer build and deploy
       id: cache-composer
       run: |
+        echo ${{ steps.pantheon-deploy.outputs.PANTHEONSITEUUID}}
+        echo ${{ steps.pantheon-deploy.PANTHEONSITEUUID}}
         echo $CARKONEMAIL
         ls
-        export SITENAME="$(terminus site:info  --format list --field name -- $PANTHEONSITEUUID)"
-        echo $SITENAME
-        echo $PANTHEONSITEUUID
-        terminus rsync . $SITENAME.dev:code
+        #export SITENAME="$(terminus site:info  --format list --field name -- ${{ steps.pantheon-deploy.outputs.PANTHEONSITEUUID}}"
+        #echo $SITENAME
+        #echo $PANTHEONSITEUUID
+        terminus rsync . site-deploy-gh1.dev:code
         pwd
         cd /
         ls
