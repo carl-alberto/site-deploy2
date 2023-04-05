@@ -4,8 +4,6 @@
  */
 error_reporting( E_ALL ^ E_DEPRECATED );
 
-
-
 /**
  * Set root path
  */
@@ -45,7 +43,7 @@ define( 'FORCE_SSL_ADMIN', true );
 /**
  * Limit post revisions
  */
-define( 'WP_POST_REVISIONS', 3 );
+define( 'WP_POST_REVISIONS', 4 );
 
 /*
  * If NOT on Pantheon
