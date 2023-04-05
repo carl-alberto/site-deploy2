@@ -16,12 +16,13 @@ jobs:
       id: cache-vendor
       env:
         CARKONEMAIL: ${{ secrets.PANTHEONEMAIL }}
-        PANTHEONSITEUUID: ${{ secrets.PANTHEONSITEUUID }}
-        PANTHEONEMAIL: ${{ secrets.PANTHEONEMAIL }}
+        PANTHEONSITEUUID: 4a2be46c-9101-45d4-b51b-cd342c7b3d7f
+        PANTHEONEMAIL: carl.alberto@pantheon.io
         MACHINETOKEN: ${{ secrets.MACHINETOKEN }}
         PANTHEON_PRIVATE_KEY: ${{ secrets.PANTHEON_PRIVATE_KEY }}
         PROJECT_ROOT: $(pwd)
         GH_REF2: ${{ github.ref }}
+        PANTHEONENV: dev
     - name: Composer build and deploy
       id: cache-composer
       run: |
