@@ -28,9 +28,11 @@ jobs:
       run: |
         echo $CARKONEMAIL
         ls
+        terminus rsync . $PANTHEONSITEUUID.dev:code
         pwd
         cd /
         ls
-        terminus
+        terminus whoami
         eval `ssh-agent -s`
+
 
