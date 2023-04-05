@@ -27,8 +27,6 @@ jobs:
       id: cache-composer
       run: |
         echo $CARKONEMAIL
-        echo "$CARKONEMAIL"
-        echo CARKONEMAIL
         ls
         pwd
         cd /
