@@ -35,7 +35,7 @@ jobs:
         #export SITENAME="$(terminus site:info  --format list --field name -- ${{ steps.pantheon-deploy.outputs.PANTHEONSITEUUID}}"
         #echo $SITENAME
         #echo $PANTHEONSITEUUID
-        terminus rsync ./web site-deploy-gh1.dev:code
+        terminus rsync ./web site-deploy-gh1.dev:code/web  
         pwd
         cd /
         ls
