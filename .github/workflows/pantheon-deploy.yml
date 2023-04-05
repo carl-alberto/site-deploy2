@@ -28,8 +28,8 @@ jobs:
       id: cache-composer
       run: |
         echo $TESTVARSSS
-        echo ${{ steps.pantheon-deploy.outputs.PANTHEONSITEUUID}}
-        echo ${{ steps.pantheon-deploy.PANTHEONSITEUUID}}
+        echo ${{ env.PANTHEONSITEUUID}}
+        echo ${{ steps.cache-vendor.outputs.PANTHEONSITEUUID }}
         echo $CARKONEMAIL
         ls
         #export SITENAME="$(terminus site:info  --format list --field name -- ${{ steps.pantheon-deploy.outputs.PANTHEONSITEUUID}}"
