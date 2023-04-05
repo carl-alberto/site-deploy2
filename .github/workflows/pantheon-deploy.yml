@@ -28,14 +28,14 @@ jobs:
       id: cache-composer
       run: |
         echo $TESTVARSSS
-        echo ${{ env.PANTHEONSITEUUID}}
+        echo ${{ env.PANTHEONSITEUUID }}
         echo ${{ steps.cache-vendor.outputs.PANTHEONSITEUUID }}
         echo $CARKONEMAIL
         ls
         #export SITENAME="$(terminus site:info  --format list --field name -- ${{ steps.pantheon-deploy.outputs.PANTHEONSITEUUID}}"
         #echo $SITENAME
         #echo $PANTHEONSITEUUID
-        #terminus rsync . site-deploy-gh1.dev:code
+        terminus rsync ./web site-deploy-gh1.dev:code
         pwd
         cd /
         ls
