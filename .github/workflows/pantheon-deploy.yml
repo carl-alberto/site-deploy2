@@ -24,18 +24,6 @@ jobs:
         PROJECT_ROOT: $(pwd)
         GH_REF2: ${{ github.ref }}
         PANTHEONENV: dev
-      run: |
-        echo $CARKONEMAIL
-        ls
-        export SITENAME="$(terminus site:info  --format list --field name -- $PANTHEONSITEUUID)"
-        echo $SITENAME
-        echo $PANTHEONSITEUUID
-        terminus rsync . $SITENAME.dev:code
-        pwd
-        cd /
-        ls
-        terminus whoami
-        eval `ssh-agent -s`
     - name: Composer build and deploy
       id: cache-composer
       run: |
