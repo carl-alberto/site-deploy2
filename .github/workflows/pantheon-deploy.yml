@@ -34,4 +34,5 @@ jobs:
         cd /
         ls
         terminus
-        cd /home/runner/work
+        eval `ssh-agent -s`
+
